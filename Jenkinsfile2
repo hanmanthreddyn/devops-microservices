@@ -1,0 +1,44 @@
+// DECLARATIVE APPROACH
+pipeline {
+	agent any
+	stages {
+		stage('Build'){
+			steps {
+				echo "Building"
+				echo "Building1"
+			}
+		}
+		stage('Test'){
+			steps {
+				echo "Testing"
+				echo "Testing1"
+			}
+		}
+		stage('Integration Test'){
+			steps {
+				echo "Integration Testing"
+				echo "Integration Testing1"
+			}
+		}
+	
+	} 
+	
+	post {
+		always {
+			echo "I am awesome i always run"
+		}
+		success {
+			echo "i run when successful"
+		
+		}
+		failure {
+			echo "I run when failure happened"
+		
+		}
+		changed {
+			echo "it runs when failure to success or success to failure happens"
+		}
+	}
+
+
+}
